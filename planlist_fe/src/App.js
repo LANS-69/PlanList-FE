@@ -8,7 +8,8 @@ class App extends Component {
     super(props);
     this.state = {
 
-     bookList: []
+     bookList: [],
+     wishList: []
     };
   }
 
@@ -19,6 +20,13 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  getWishList = () => {
+    axios   
+      .get("http://127.0.0.1:8000/api/wishList/")
+      .then(res => this.setState({ wishList: res.data }))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="App">
@@ -26,12 +34,17 @@ class App extends Component {
           Alex's and Nati's new website
         </h1>
         <body>
-        <button onClick={this.getBooks}>Get Books</button>
-        <ul>
-          {this.state.bookList.map((item) => (
-            <li key={item.id}>Author: {item.author} <br></br> Name: {item.name}</li>
+        <button onClick={this.getWishList}>Get Wishlist</button>
+          {this.state.wishList.map((item) => (
+            <div class="card" style= {{width: "18rem"}}>
+            <img class="card-img-top" src={item.image} alt="Card image cap"></img>
+            <div class="card-body">
+              <h5 class="card-title">{item.name}</h5>
+              <p class="card-text">{item.description}</p>
+              <a href={item.storeUrl} class="btn btn-primary">Link to store</a>
+            </div>
+            </div>
             ))}
-        </ul>
         </body>
       </div>
       );
