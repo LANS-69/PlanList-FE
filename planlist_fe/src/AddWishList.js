@@ -2,23 +2,15 @@ import './App.css';
 import axios from 'axios';
 import React, { Component } from "react";
 
-class App extends Component {
+class AddWishList extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
 
-     bookList: [],
      wishList: []
     };
   }
-
-  getBooks = () => {
-    axios   //Axios to send and receive HTTP requests
-      .get("http://127.0.0.1:8000/api/test/")
-      .then(res => this.setState({ bookList: res.data }))
-      .catch(err => console.log(err));
-  };
 
   getWishList = () => {
     axios   
@@ -36,12 +28,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="AddWishList">
         <h1>
           Alex's and Nati's new website
         </h1>
-        <body>
-          <button onClick={this.getWishList}>Get Wishlist</button>
+        {/* <body>
+        <button onClick={this.getWishList}>Get Wishlist</button>
           {this.state.wishList.map((item) => (
             <div class="card" style= {{width: "18rem"}}>
             <img class="card-img-top" src={item.image} alt="Card image cap"></img>
@@ -52,11 +44,15 @@ class App extends Component {
             </div>
             </div>
             ))}
-          {/* <button onClick={this.} */}
+        </body> */}
+        <body>
+            <text>
+                this is a test page
+            </text>
         </body>
       </div>
       );
     }
   }
 
-export default App;
+export default AddWishList;
