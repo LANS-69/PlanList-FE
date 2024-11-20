@@ -1,6 +1,7 @@
-import './App.css';
+// import './App.css';
 import axios from 'axios';
 import React, { Component } from "react";
+
 
 class AddWishList extends Component {
 
