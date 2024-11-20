@@ -1,6 +1,7 @@
 // import './App.css';
 import axios from 'axios';
 import React, { Component } from "react";
+import './viewWIshListitemsStyle.css';
 
 
 class ViewWishListItems extends Component {
@@ -29,25 +30,31 @@ class ViewWishListItems extends Component {
   render() {
     return (
       <div className="viewWishListItems">
-        <h1>
-          Alex's and Nati's new website
-        </h1>
-        <body>
-        <button onClick={this.getWishList}>Get Wishlist</button>
-          {this.state.wishList.map((item) => (
-            <div class="card" style= {{width: "18rem"}}>
-            <img class="card-img-top" src={item.image} alt="Card image cap"></img>
-            <div class="card-body">
-              <h5 class="card-title">{item.name}</h5>
-              <p class="card-text">{item.description}</p>
-              <a href={item.storeUrl} class="btn btn-primary">Link to store</a>
+        <h1>Alex's and Nati's New Website</h1>
+        <button onClick={this.getWishList} className="wishlist-button">
+          Get Wishlist
+        </button>
+        <div className="wishlist-container">
+          {this.state.wishList.map((item, index) => (
+            <div className="card" key={index}>
+              <img
+                className="card-img-top"
+                src={item.image}
+                alt={`${item.name} image`}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{item.name}</h5>
+                <p className="card-text">{item.description}</p>
+                <a href={item.storeUrl} className="btn btn-primary">
+                  Link to Store
+                </a>
+              </div>
             </div>
-            </div>
-            ))}
-        </body>
+          ))}
+        </div>
       </div>
-      );
-    }
+    );
   }
+}
 
 export default ViewWishListItems;
