@@ -1,59 +1,76 @@
 // import './App.css';
 import axios from 'axios';
 import React, { Component } from "react";
+import addItemToWishList from '../Functions/addItemToWishList'
+import {useNavigate } from 'react-router-dom';
+// import handleSubmit from '../Functions/handleSubmit';
 
 
-class AddWishList extends Component {
+function AddWishList(props) {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  const navigate = useNavigate();
 
-     wishList: []
+     const handleSubmit = (e) => {
+      // Prevent the browser from reloading the page
+      e.preventDefault();
+  
+      // Read the form data
+      const form = e.target;
+      const formData = new FormData(form);
+      let itemToAdd = new Object()
+      itemToAdd.name = formData.get('name');
+      itemToAdd.price = formData.get('price');
+      itemToAdd.description = formData.get('description');
+      itemToAdd.image = formData.get('imageUrl');
+      itemToAdd.storeUrl = formData.get('storeUrl');
+      itemToAdd.location = formData.get('location');
+  
+      addItemToWishList(itemToAdd);
+      navigate('/')
     };
-  }
 
-  getWishList = () => {
-    axios   
-      .get("http://127.0.0.1:8000/api/wishList/")
-      .then(res => this.setState({ wishList: res.data }))
-      .catch(err => console.log(err));
-  };
-
-  addItemToWishList = (item) => {
-    axios
-    .post("http://127.0.0.1:8000/api/wishList/", item)
-    .then(res => this.setState({ wishList: res.data }))
-    .catch(err => console.log(err));
-    };
-
-  render() {
     return (
       <div className="AddWishList">
-        <h1>
-          Alex's and Nati's new website
-        </h1>
-        {/* <body>
-        <button onClick={this.getWishList}>Get Wishlist</button>
-          {this.state.wishList.map((item) => (
-            <div class="card" style= {{width: "18rem"}}>
-            <img class="card-img-top" src={item.image} alt="Card image cap"></img>
-            <div class="card-body">
-              <h5 class="card-title">{item.name}</h5>
-              <p class="card-text">{item.description}</p>
-              <a href={item.storeUrl} class="btn btn-primary">Link to store</a>
-            </div>
-            </div>
-            ))}
-        </body> */}
         <body>
-            <text>
-                this is a test page
-            </text>
+          <form onSubmit={handleSubmit}>
+            <label for="itemName">Item name:
+            <input type="text" id="itemName" name="itemName"></input>
+            </label>
+            <br></br>
+            <label for="itemDescription">Item description:
+            <input type="text" id="itemDescription" name="itemDescription"></input>
+            </label>
+            <br></br>
+            <label for="storeUrl">Store URL:
+            <input type="url" id="storeUrl" name="storeUrl"></input>
+            </label>
+            <br></br>
+            <label for="imageUrl">Image URL:
+            <input type="url" id="storeUrl" name="storeUrl"></input>
+            </label>
+            <br></br>
+            <label for="price">Item price:
+            <input type="number" id="price" name="price"></input>
+            </label>
+            <br></br>
+            <p>
+              Location
+              <label><input type="radio" name="location" value="livingroom" /> Living Room</label>
+              <label><input type="radio" name="location" value="bathroom" /> Bathroom</label>
+              <label><input type="radio" name="location" value="bedroom" /> Bedroom</label>
+              <label><input type="radio" name="location" value="playroom" /> Playroom</label>
+              <label><input type="radio" name="location" value="kitchen" /> Kitchen</label>
+              <label><input type="radio" name="location" value="backyard" /> Backyard</label>
+              <label><input type="radio" name="location" value="office" /> Office</label>
+              <label><input type="radio" name="location" value="balcony" /> Balcony</label>
+              <label><input type="radio" name="location" value="other" /> Other</label>
+            </p>
+            <br></br>
+            <button type="submit">Add item to wishlist</button>
+          </form>
         </body>
       </div>
       );
     }
-  }
 
 export default AddWishList;
