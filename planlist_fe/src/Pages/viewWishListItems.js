@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { Component } from "react";
 
 
-class Home extends Component {
+class ViewWishListItems extends Component {
 
   constructor(props) {
     super(props);
@@ -28,7 +28,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="viewWishListItems">
         <h1>
           Alex's and Nati's new website
         </h1>
@@ -50,4 +50,4 @@ class Home extends Component {
     }
   }
 
-export default Home;
+export default ViewWishListItems;

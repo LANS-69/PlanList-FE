@@ -18,9 +18,9 @@ function AddWishList(props) {
       const form = e.target;
       const formData = new FormData(form);
       let itemToAdd = new Object()
-      itemToAdd.name = formData.get('name');
+      itemToAdd.name = formData.get('itemName');
       itemToAdd.price = formData.get('price');
-      itemToAdd.description = formData.get('description');
+      itemToAdd.description = formData.get('itemDescription');
       itemToAdd.image = formData.get('imageUrl');
       itemToAdd.storeUrl = formData.get('storeUrl');
       itemToAdd.location = formData.get('location');

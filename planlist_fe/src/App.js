@@ -7,7 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import AddWishList from './Components/AddWishList';
-import Home from './Pages/Home';
+import Home from './Pages/viewWishListItems';
 
 class App extends Component {
 
