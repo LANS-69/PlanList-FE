@@ -36,6 +36,8 @@ class ViewWishListItems extends Component {
       "Kitchen",
       "Backyard",
       "Balcony",
+      "Office",
+      "Other"
     ];
 
     return (
