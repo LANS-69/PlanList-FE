@@ -45,7 +45,10 @@ class ViewWishListItems extends Component {
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.description}</p>
-                <a href={item.storeUrl} className="btn btn-primary">
+                <p className="card-price">${item.price}</p>
+                <p className="card-location">{item.location}</p>
+                <a href={item.storeUrl} className="btn btn-primary"
+                target="_blank" rel="noopener noreferrer">
                   Link to Store
                 </a>
               </div>
