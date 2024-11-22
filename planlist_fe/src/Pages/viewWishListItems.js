@@ -28,12 +28,35 @@ class ViewWishListItems extends Component {
     };
 
   render() {
+    const locations = [
+      "Living Room",
+      "Bathroom",
+      "Bedroom",
+      "Playroom",
+      "Kitchen",
+      "Backyard",
+      "Balcony",
+    ];
+
     return (
       <div className="viewWishListItems">
         <h1>Alex's and Nati's New Website</h1>
         <button onClick={this.getWishList} className="wishlist-button">
           Get Wishlist
         </button>
+
+        <div className="tabs-container">
+          {locations.map((location, index) => (
+            <button
+              key={index}
+              className="tab-button"
+              onClick={() => console.log(`Tab for ${location} clicked`)}
+            >
+              {location}
+            </button>
+          ))}
+        </div>
+
         <div className="wishlist-container">
           {this.state.wishList.map((item, index) => (
             <div className="card" key={index}>
