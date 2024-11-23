@@ -45,7 +45,7 @@ class App extends Component {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<ViewWishListItems />} />
+                <Route path="/wishlist" element={<ViewWishListItems />} />
                 <Route
                     path="/addWishList"
                     element={<AddWishList />}
