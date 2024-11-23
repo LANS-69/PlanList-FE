@@ -1,66 +1,75 @@
 // import './App.css';
 import axios from 'axios';
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import './viewWIshListitemsStyle.css';
 
 
-class ViewWishListItems extends Component {
+function ViewWishListItems() {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-     wishList: []
-    };
-  }
+  const [wishList, setWishList] = useState( new Array())
+  const [filteredWishList, setFilteredWishList] = useState(new Array())
+  const [selectedLocation, setSelectedLocation] = useState("")
 
-  getWishList = () => {
+  function getWishList () {
     axios   
       .get("http://127.0.0.1:8000/api/wishList/")
-      .then(res => this.setState({ wishList: res.data }))
+      .then(res => setWishList(res.data) )
       .catch(err => console.log(err));
-  };
+  }
 
-  addItemToWishList = (item) => {
-    axios
-    .post("http://127.0.0.1:8000/api/wishList/", item)
-    .then(res => this.setState({ wishList: res.data }))
-    .catch(err => console.log(err));
-    };
+  function filterWishListOnLocation (filter) {
+    setFilteredWishList(wishList.filter((item) => item.location == filter));
+    locations.forEach((location) => {
+      if (location.key == filter) {
+        setSelectedLocation(location.value)
+      }
+    })
+  }
 
-  render() {
     const locations = [
-      "Living Room",
-      "Bathroom",
-      "Bedroom",
-      "Playroom",
-      "Kitchen",
-      "Backyard",
-      "Balcony",
-      "Office",
-      "Other"
+      {key: "livingRoom", value: "Living Room"},
+      {key: "bathroom", value: "Bathroom"},
+      {key: "bedRoom", value: "Bedroom"},
+      {key: "playroom", value: "Playroom"},
+      {key: "kitchen", value: "Kitchen"},
+      {key: "backyard", value: "Backyard"},
+      {key: "balcony", value: "Balcony"},
+      {key: "office", value: "Office"},
+      {key: "other", value: "Other"}
     ];
 
+    useEffect(() => {
+      getWishList();
+      setFilteredWishList(wishList);
+    }, []);
+    
     return (
       <div className="viewWishListItems">
         <h1>Alex's and Nati's New Website</h1>
-        <button onClick={this.getWishList} className="wishlist-button">
+        {/* <button onClick={this.getWishList} className="wishlist-button">
           Get Wishlist
-        </button>
+        </button> */}
 
         <div className="tabs-container">
           {locations.map((location, index) => (
-            <button
-              key={index}
-              className="tab-button"
-              onClick={() => console.log(`Tab for ${location} clicked`)}
-            >
-              {location}
-            </button>
+            <div>
+              <button
+                key={index}
+                className="tab-button"
+                onClick={() => {filterWishListOnLocation(location.key);
+                  console.log(`Tab for ${location.value} clicked`);
+                  console.log(`List: ${filteredWishList}`);}}
+              >
+                {location.value}
+              </button>
+            </div>
           ))}
         </div>
+        
+        <h2>{selectedLocation}</h2>
 
         <div className="wishlist-container">
-          {this.state.wishList.map((item, index) => (
+          {filteredWishList.map((item, index) => (
             <div className="card" key={index}>
               <img
                 className="card-img-top"
@@ -83,6 +92,5 @@ class ViewWishListItems extends Component {
       </div>
     );
   }
-}
 
 export default ViewWishListItems;

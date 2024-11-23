@@ -7,7 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import AddWishList from './Components/AddWishList';
-import Home from './Pages/viewWishListItems';
+import ViewWishListItems from './Pages/viewWishListItems';
 
 class App extends Component {
 
@@ -45,7 +45,7 @@ class App extends Component {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<ViewWishListItems />} />
                 <Route
                     path="/addWishList"
                     element={<AddWishList />}
