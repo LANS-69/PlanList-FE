@@ -1,4 +1,10 @@
-.viewWishListItems {
+body {
+  background-color: #555; /* Gray background */
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Consistent font style */
+  }
+
+  .viewWishListItems {
     text-align: center;
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -103,4 +109,29 @@
     background-color: #0056b3;
     color: white;
   }
+
+  /* Navigation Buttons */
+  .navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-bottom: 20px;
+  }
+
+  .home-button,
+  .add-wishlist-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .home-button:hover,
+  .add-wishlist-button:hover {
+    background-color: #0056b3;
+  }
+
   

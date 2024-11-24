@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import AddWishList from './Components/AddWishList';
 import ViewWishListItems from './Pages/viewWishListItems';
-
+import ViewHomePage from './Pages/viewHomePage';
 class App extends Component {
 
   constructor(props) {
@@ -46,10 +46,8 @@ class App extends Component {
         <Router>
             <Routes>
                 <Route path="/wishlist" element={<ViewWishListItems />} />
-                <Route
-                    path="/addWishList"
-                    element={<AddWishList />}
-                />
+                <Route path="/addWishList"element={<AddWishList />}/>
+                <Route path="/" element={<ViewHomePage />} />
             </Routes>
         </Router>
       );

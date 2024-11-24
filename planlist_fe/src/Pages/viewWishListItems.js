@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { Component, useEffect, useState } from "react";
 import './viewWIshListitemsStyle.css';
+import { useNavigate } from "react-router-dom";
 
 
 function ViewWishListItems() {
@@ -9,6 +10,7 @@ function ViewWishListItems() {
   const [wishList, setWishList] = useState( new Array())
   const [filteredWishList, setFilteredWishList] = useState(new Array())
   const [selectedLocation, setSelectedLocation] = useState("")
+  const navigate = useNavigate();
 
   function getWishList () {
     axios   
@@ -41,14 +43,27 @@ function ViewWishListItems() {
     useEffect(() => {
       getWishList();
       setFilteredWishList(wishList);
+      document.title = "Wish List";
     }, []);
     
     return (
       <div className="viewWishListItems">
-        <h1>Alex's and Nati's New Website</h1>
-        {/* <button onClick={this.getWishList} className="wishlist-button">
-          Get Wishlist
-        </button> */}
+        <h1>Alex's and Nati's Wish List</h1>
+
+        <div className="navigation-buttons">
+          <button
+            className="home-button"
+            onClick={() => navigate("/")}
+          >
+            Home
+          </button>
+          <button
+            className="add-wishlist-button"
+            onClick={() => navigate("/addwishlist")}
+          >
+            Add to Wish List
+          </button>
+        </div>
 
         <div className="tabs-container">
           {locations.map((location, index) => (
@@ -80,8 +95,7 @@ function ViewWishListItems() {
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.description}</p>
                 <p className="card-price">${item.price}</p>
-                <a href={item.storeUrl} className="btn btn-primary"
-                target="_blank" rel="noopener noreferrer">
+                <a href={item.storeUrl} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
                   Link to Store
                 </a>
               </div>

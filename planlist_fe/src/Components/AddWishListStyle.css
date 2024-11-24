@@ -1,0 +1,91 @@
+/* Center the container on the screen */
+.add-wishlist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('./image.png'); /* Add your image here */
+    background-size: cover; /* Ensure the image covers the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+    color: #ffffff; /* Ensure text remains readable */
+    /* background-color: #121212; Dark background */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Style the box */
+  .add-wishlist-box {
+    background: #1e1e1e; /* Dark gray box */
+    border: 1px solid #333; /* Darker border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    color: #ffffff; /* White text */
+  }
+  
+  /* Form elements spacing */
+  .add-wishlist-box form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-wishlist-box label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #e0e0e0; /* Light gray text for labels */
+  }
+  
+  .add-wishlist-box input {
+    padding: 10px;
+    border: 1px solid #444; /* Darker input border */
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: #2c2c2c; /* Dark input background */
+    color: #ffffff; /* White text for inputs */
+  }
+  
+  .add-wishlist-box input::placeholder {
+    color: #888; /* Placeholder text color */
+  }
+  
+  /* Radio buttons group styling */
+  .location-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .location-options label {
+    font-weight: normal;
+    color: #cccccc; /* Light gray text for radio labels */
+  }
+  
+  /* Submit button styling */
+  .add-wishlist-box button {
+    padding: 10px 15px;
+    background-color: #007bff; /* Blue button */
+    color: #ffffff; /* White button text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .add-wishlist-box button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Focus and active styles */
+  .add-wishlist-box input:focus,
+  .add-wishlist-box button:focus {
+    outline: 2px solid #007bff; /* Blue outline for focused elements */
+  }
+  
+  .add-wishlist-box input:active {
+    border-color: #0056b3;
+  }
+  
