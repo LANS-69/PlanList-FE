@@ -10,6 +10,7 @@ function ViewWishListItems() {
   const [wishList, setWishList] = useState( new Array())
   const [filteredWishList, setFilteredWishList] = useState(new Array())
   const [selectedLocation, setSelectedLocation] = useState("")
+  const [activeTab, setActiveTab] = useState(null);
   const navigate = useNavigate();
 
   function getWishList () {
@@ -21,89 +22,85 @@ function ViewWishListItems() {
 
   function filterWishListOnLocation (filter) {
     setFilteredWishList(wishList.filter((item) => item.location == filter));
-    locations.forEach((location) => {
-      if (location.key == filter) {
-        setSelectedLocation(location.value)
-      }
-    })
+    const locationName = locations.find((location) => location.key === filter)?.value || "";
+    setSelectedLocation(locationName);
+    setActiveTab(filter);
   }
 
-    const locations = [
-      {key: "livingRoom", value: "Living Room"},
-      {key: "bathroom", value: "Bathroom"},
-      {key: "bedRoom", value: "Bedroom"},
-      {key: "playroom", value: "Playroom"},
-      {key: "kitchen", value: "Kitchen"},
-      {key: "backyard", value: "Backyard"},
-      {key: "balcony", value: "Balcony"},
-      {key: "office", value: "Office"},
-      {key: "other", value: "Other"}
-    ];
+  const locations = [
+    {key: "livingRoom", value: "Living Room"},
+    {key: "bathroom", value: "Bathroom"},
+    {key: "bedRoom", value: "Bedroom"},
+    {key: "playroom", value: "Playroom"},
+    {key: "kitchen", value: "Kitchen"},
+    {key: "backyard", value: "Backyard"},
+    {key: "balcony", value: "Balcony"},
+    {key: "office", value: "Office"},
+    {key: "other", value: "Other"}
+  ];
 
-    useEffect(() => {
-      getWishList();
-      setFilteredWishList(wishList);
-      document.title = "Wish List";
-    }, []);
-    
-    return (
-      <div className="viewWishListItems">
-        <h1>Alex's and Nati's Wish List</h1>
+  useEffect(() => {
+    getWishList();
+    setFilteredWishList(wishList);
+    document.title = "Wish List";
+  }, []);
+  
+  return (
+    <div className="viewWishListItems">
+      <h1>Alex's and Nati's Wish List</h1>
 
-        <div className="navigation-buttons">
-          <button
-            className="home-button"
-            onClick={() => navigate("/")}
-          >
-            Home
-          </button>
-          <button
-            className="add-wishlist-button"
-            onClick={() => navigate("/addwishlist")}
-          >
-            Add to Wish List
-          </button>
-        </div>
+      <div className="navigation-buttons">
+        <button
+          className="home-button"
+          onClick={() => navigate("/")}>
+          Home
+        </button>
 
-        <div className="tabs-container">
-          {locations.map((location, index) => (
-            <div>
-              <button
-                key={index}
-                className="tab-button"
-                onClick={() => {filterWishListOnLocation(location.key);
-                  console.log(`Tab for ${location.value} clicked`);
-                  console.log(`List: ${filteredWishList}`);}}
-              >
-                {location.value}
-              </button>
-            </div>
-          ))}
-        </div>
-        
-        <h2>{selectedLocation}</h2>
-
-        <div className="wishlist-container">
-          {filteredWishList.map((item, index) => (
-            <div className="card" key={index}>
-              <img
-                className="card-img-top"
-                src={item.image}
-                alt={`${item.name} image`}
-              />
-              <div className="card-body">
-                <h5 className="card-title">{item.name}</h5>
-                <p className="card-text">{item.description}</p>
-                <p className="card-price">${item.price}</p>
-                <a href={item.storeUrl} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                  Link to Store
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+        <button
+          className="add-wishlist-button"
+          onClick={() => navigate("/addwishlist")}>
+          Add to Wish List
+        </button>
       </div>
-    );
-  }
+
+      <div className="tabs-container">
+        {locations.map((location, index) => (
+            <button
+              key={index}
+              className={`tab-button ${activeTab === location.key ? "active-tab" : ""}`}
+              onClick={() => filterWishListOnLocation(location.key)}>
+              {location.value}
+            </button>
+        ))}
+      </div>
+      
+      {activeTab && (
+        <div className="folder-view">
+          <h2>{selectedLocation || "All Items"}</h2>
+
+          <div className="wishlist-container">
+            {filteredWishList.map((item, index) => (
+              <div className="card" key={index}>
+                <img
+                  className="card-img-top"
+                  src={item.image}
+                  alt={`${item.name} image`}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{item.name}</h5>
+                  <p className="card-text">{item.description}</p>
+                  <p className="card-price">${item.price}</p>
+                  <a href={item.storeUrl} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    Link to Store
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default ViewWishListItems;

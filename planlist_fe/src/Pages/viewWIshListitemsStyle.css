@@ -1,146 +1,152 @@
+/* Main container styling */
 .viewWishListItems {
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  background-color: #555; 
+  background-color: #555; /* Background color */
   margin: 0;
-  height: 100vh; 
-  font-family: Arial, sans-serif; 
-  /* background-image: url('./images1.jpg'); 
-  background-size: cover; 
-  background-position: center;  */
-  color: #ffffff; 
+  height: 100vh; /* Full viewport height */
+  font-family: Arial, sans-serif; /* Consistent font style */
+  color: #ffffff; /* Text color */
+  /* Uncomment to add a background image:
+  background-image: url('./images1.jpg');
+  background-size: cover;
+  background-position: center;
+  */
 }
 
-  
-  .wishlist-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .wishlist-button:hover {
-    background-color: #45a049;
-  }
-  
-  .wishlist-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .card {
-    width: 250px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    background-color: #f9f9f9;
-  }
-  
-  .card-img-top {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .card-body {
-    padding: 15px;
-    text-align: left;
-  }
-  
-  .card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #110c0c;
-  }
-  
-  .card-text {
-    font-size: 14px;
-    color: #110c0c;
-  }
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  margin-bottom: 20px;
+}
 
-  .card-price {
-    font-size: 14px;
-    color: #110c0c;
-  }
-  
-  .btn-primary {
-    display: inline-block;
-    padding: 10px 15px;
-    color: white;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .tabs-container {
-    display: flex;
-    justify-content: space-between; /* Spread out tabs evenly */
-    align-items: center; /* Vertically center tabs */
-    width: 100%; /* Full width */
-    padding: 10px 20px; /* Add spacing */
-    box-sizing: border-box; /* Include padding in total width */
-  }
-  
-  .tab-button {
-    flex: 1; /* All buttons take equal width */
-    margin: 0 5px; /* Add spacing between tabs */
-    padding: 10px 15px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: center; /* Center text within the button */
-  }
-  
-  .tab-button:hover {
-    background-color: #007BFF;
-    color: white;
-  }
-  
-  .tab-button:active {
-    background-color: #0056b3;
-    color: white;
-  }
+.home-button,
+.add-wishlist-button,
+.wishlist-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-  /* Navigation Buttons */
-  .navigation-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between buttons */
-    margin-bottom: 20px;
-  }
+.home-button:hover,
+.add-wishlist-button:hover,
+.wishlist-button:hover {
+  background-color: #0056b3;
+}
 
-  .home-button,
-  .add-wishlist-button {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+/* Specific Wishlist button styling */
+.wishlist-button {
+  background-color: #4CAF50;
+}
 
-  .home-button:hover,
-  .add-wishlist-button:hover {
-    background-color: #0056b3;
-  }
+.wishlist-button:hover {
+  background-color: #45a049;
+}
 
-  
+/* Tabs container styling */
+.tabs-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow tabs to wrap to a new line */
+  justify-content: center; /* Center-align tabs */
+  gap: 8px; /* Space between tabs */
+  padding: 8px;
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.tab-button {
+  flex: 1; /* Equal width for all tabs */
+  margin: 0 4px; /* Add spacing between tabs */
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center; /* Center text */
+}
+
+.tab-button:hover {
+  background-color: #007BFF;
+  color: white;
+}
+
+.tab-button:active {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Folder view styling */
+.folder-view {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: #444; /* Folder background */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Wishlist container styling */
+.wishlist-container {
+  display: flex;
+  flex-wrap: wrap; /* Wrap items to the next row */
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Card styling */
+.card {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: contain; /* Preserve image aspect ratio */
+  border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+  padding: 15px;
+  text-align: left;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #110c0c;
+}
+
+.card-text,
+.card-price {
+  font-size: 14px;
+  color: #110c0c;
+}
+
+/* Button inside cards */
+.btn-primary {
+  display: inline-block;
+  padding: 10px 15px;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline */
+  font-size: 14px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
