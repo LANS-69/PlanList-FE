@@ -15,7 +15,9 @@ function ViewHomePage() {
 
       ];
     
-    
+    useEffect(() => {
+    document.title = "Home Page";
+    }, []);
     return (
         <div className="viewHomePage">
           <h1>Alex's and Nati's Website</h1>

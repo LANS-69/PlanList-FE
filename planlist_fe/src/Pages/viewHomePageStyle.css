@@ -1,80 +1,18 @@
 /* Global styles */
-html, body {
-    height: 100%; /* Full height for the entire page */
-    margin: 0; /* Remove default margin */
-    font-family: Arial, sans-serif; /* Consistent font style */
-    background-color: #555; /* Gray fallback background */
-    background-image: url('./images.jpg'); /* Add your image here */
-    background-size: cover; /* Ensure the image covers the entire area */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent tiling */
-    color: #ffffff; /* Ensure text remains readable */
-}
 
 /* Center content inside the ViewHomePage */
 .viewHomePage {
     text-align: center;
     font-family: Arial, sans-serif;
-    margin: 0 auto;
-    height: 100%; /* Full height */
-    display: flex; /* Enable Flexbox */
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-}
-
-/* Carousel container for buttons */
-.carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Relative for arrows */
-    margin-top: 20px; /* Add spacing above carousel */
-    width: 80%; /* Restrict carousel width */
-    overflow: hidden; /* Hide overflowing buttons */
-}
-
-/* Button wrapper for scrolling */
-.button-wrapper {
-    display: flex;
-    gap: 10px; /* Add spacing between buttons */
-    transition: transform 0.5s ease-in-out; /* Smooth scrolling */
-}
-
-/* Individual buttons */
-.carousel-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007BFF;
-    color: white;
-    white-space: nowrap; /* Prevent button text wrapping */
-}
-
-.carousel-button:hover {
-    background-color: #0056b3;
-}
-
-/* Arrows */
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.arrow.left {
-    left: 10px;
-}
-
-.arrow.right {
-    right: 10px;
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    background-color: #555; 
+    background-image: url('./images.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: #ffffff; 
 }

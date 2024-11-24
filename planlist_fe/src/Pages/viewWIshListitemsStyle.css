@@ -1,14 +1,17 @@
-body {
-  background-color: #555; /* Gray background */
-  margin: 0; /* Remove default margin */
-  font-family: Arial, sans-serif; /* Consistent font style */
-  }
+.viewWishListItems {
+  display: flex; 
+  flex-direction: column; 
+  text-align: center;
+  background-color: #555; 
+  margin: 0;
+  height: 100vh; 
+  font-family: Arial, sans-serif; 
+  /* background-image: url('./images1.jpg'); 
+  background-size: cover; 
+  background-position: center;  */
+  color: #ffffff; 
+}
 
-  .viewWishListItems {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
   
   .wishlist-button {
     background-color: #4CAF50;
@@ -43,8 +46,8 @@ body {
   
   .card-img-top {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    height: 250px;
+    object-fit: contain;
     border-bottom: 1px solid #ddd;
   }
   
@@ -57,11 +60,17 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #110c0c;
   }
   
   .card-text {
     font-size: 14px;
-    color: #555;
+    color: #110c0c;
+  }
+
+  .card-price {
+    font-size: 14px;
+    color: #110c0c;
   }
   
   .btn-primary {
