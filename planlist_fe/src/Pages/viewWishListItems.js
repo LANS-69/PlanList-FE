@@ -22,9 +22,21 @@ function ViewWishListItems() {
 
   function filterWishListOnLocation (filter) {
     setFilteredWishList(wishList.filter((item) => item.location == filter));
-    const locationName = locations.find((location) => location.key === filter)?.value || "";
-    setSelectedLocation(locationName);
+    // const locationName = locations.find((location) => location.key === filter)?.value || "";
+    // setSelectedLocation(locationName);
     setActiveTab(filter);
+    locations.forEach((location) => {
+      const locationElement = document.getElementsByClassName("tab-" + location.key).item(0);
+      if (location.key === filter) {
+        locationElement.style.backgroundColor = "#444"
+        locationElement.style.border = "12px solid #444"
+        locationElement.style.margin = "0"
+      } else {
+        locationElement.style.backgroundColor = "#555"
+        locationElement.style.border = "1px solid #555"
+        locationElement.style.margin = "20px"
+      }
+    })
   }
 
   const locations = [
@@ -65,18 +77,22 @@ function ViewWishListItems() {
 
       <div className="tabs-container">
         {locations.map((location, index) => (
+          <div className={`tab-${location.key}`}>
             <button
               key={index}
               className={`tab-button ${activeTab === location.key ? "active-tab" : ""}`}
               onClick={() => filterWishListOnLocation(location.key)}>
               {location.value}
             </button>
+          </div>
         ))}
       </div>
       
       {activeTab && (
         <div className="folder-view">
-          <h2>{selectedLocation || "All Items"}</h2>
+          {/* <h2>{selectedLocation || "All Items"}</h2> */}
+          <br></br>
+          <br></br>
 
           <div className="wishlist-container">
             {filteredWishList.map((item, index) => (

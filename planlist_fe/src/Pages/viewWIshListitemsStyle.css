@@ -55,10 +55,10 @@
   display: flex;
   flex-wrap: wrap; 
   justify-content: center; 
-  gap: 8px;
-  padding: 8px;
+  /* gap: 8px; */
+  /* padding: 8px; */
   width: 100%; 
-  box-sizing: border-box; 
+  /* box-sizing: border-box;  */
 }
 
 .tab-button {
@@ -93,7 +93,8 @@
   flex-grow: 1;
   overflow-y: auto;
   background-color: #444; 
-  padding: 20px;
+  /* padding: 20px; */
+  margin: 0;
   border-radius: 10px;
 }
 
