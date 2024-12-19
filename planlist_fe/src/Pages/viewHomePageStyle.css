@@ -51,8 +51,8 @@
     padding: 10px;
   }
   
-  /* card button styling */
-  .section-button {
+  /* Tab button styling */
+  .tab-button {
     padding: 20px 40px;
     font-size: 20px;
     border: none;
@@ -65,12 +65,12 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .section-button:hover {
+  .tab-button:hover {
     background-color: #007BFF;
     color: white;
   }
   
-  .section-button:active {
+  .tab-button:active {
     background-color: #0056b3;
     color: white;
   }

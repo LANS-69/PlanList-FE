@@ -42,7 +42,7 @@ function ViewHomePage() {
           {locations.map((location, index) => (
             <div className="carousel-item" key={index}>
               <button
-                className="section-button"
+                className="tab-button"
                 onClick={() => (window.location.href = location.path)}
               >
                 {location.value}
