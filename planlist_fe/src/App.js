@@ -7,8 +7,12 @@ import {
   Route,
 } from "react-router-dom";
 import AddWishList from './Components/AddWishList';
-import Home from './Pages/viewWishListItems';
-
+import AddMovie from './Pages/AddMovie'
+import ViewWishListItems from './Pages/viewWishListItems';
+import ViewHomePage from './Pages/viewHomePage';
+import ViewMovies from './Pages/viewMovies';
+import ViewTvShows from './Pages/viewTvShows';
+import AddTvShow from './Pages/AddTvShow';
 class App extends Component {
 
   constructor(props) {
@@ -45,11 +49,13 @@ class App extends Component {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route
-                    path="/addWishList"
-                    element={<AddWishList />}
-                />
+                <Route path="/wishlist" element={<ViewWishListItems />} />
+                <Route path="/addWishList"element={<AddWishList />}/>
+                <Route path="/movie"element={<ViewMovies />}/>
+                <Route path="/addmovie"element={<AddMovie />}/>
+                <Route path="/tvShow"element={<ViewTvShows />}/>
+                <Route path="/addTvShow"element={<AddTvShow />}/>
+                <Route path="/" element={<ViewHomePage />} />
             </Routes>
         </Router>
       );
