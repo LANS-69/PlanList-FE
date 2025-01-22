@@ -7,7 +7,7 @@ import './viewHomePageStyle.css';
 function ViewHomePage() {
     const locations = [
         {key: "Wish List", value: "Wish List", path: "/WishList"},
-        {key: "Vacation", value: "Vacation", paht: "/vacation"},
+        {key: "Vacation", value: "Vacation", path: "/Vacation"},
         {key: "Dream Home", value: "Home", path: "/DreamHome"},
         {key: "TV show", value: "TV Show", path: "/TVShow"},
         {key: "Movie", value: "Movie", path: "/Movie"},
